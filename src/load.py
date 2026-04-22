@@ -1,7 +1,7 @@
 import pandas as pd
 from sqlalchemy import create_engine
 
-def load_to_warehouse(): # <--- Fíjate que el paréntesis ahora está vacío
+def load_to_warehouse(): 
     print("Iniciando carga al Data Warehouse...")
 
     # Conexión para Docker
