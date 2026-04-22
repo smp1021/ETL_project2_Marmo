@@ -1,14 +1,23 @@
 import pandas as pd
 from sqlalchemy import create_engine
 
-def load_to_warehouse(dim_city, dim_date, dim_source, fact_climate_daily):
+def load_to_warehouse(): # <--- Fíjate que el paréntesis ahora está vacío
     print("Iniciando carga al Data Warehouse...")
 
-    db_url = "mysql+pymysql://root:root@localhost:3306/etl_project"
+    # Conexión para Docker
+    db_url = "mysql+pymysql://root:root@mysql_dw:3306/etl_project"
 
     try:
         engine = create_engine(db_url)
 
+        
+        print("Leyendo archivos procesados...")
+        dim_city = pd.read_csv("data/processed/dim_city.csv")
+        dim_date = pd.read_csv("data/processed/dim_date.csv")
+        dim_source = pd.read_csv("data/processed/dim_source.csv")
+        fact_climate_daily = pd.read_csv("data/processed/fact_climate_daily.csv")
+
+        
         print("Cargando tabla: dim_city...")
         dim_city.to_sql("dim_city", con=engine, if_exists="replace", index=False)
 

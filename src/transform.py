@@ -157,4 +157,12 @@ def transform_datasets():
     os.makedirs("data/processed", exist_ok=True)
     fact_climate_daily.to_csv("data/processed/fact_climate_daily.csv", index=False)
 
+
+    dim_city.to_csv("data/processed/dim_city.csv", index=False)
+    dim_date.to_csv("data/processed/dim_date.csv", index=False)
+    dim_source.to_csv("data/processed/dim_source.csv", index=False)
+    fact_climate_daily.to_csv("data/processed/fact_climate_daily.csv", index=False)
+
+    print("Archivos guardados correctamente en data/processed/")
+
     return dim_city, dim_date, dim_source, fact_climate_daily
