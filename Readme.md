@@ -155,7 +155,7 @@ ________________________________________
 
 5. Ejecutar el pipeline manualmente
 
-python etl/main.py
+python src/main.py
 
 ________________________________________
 
